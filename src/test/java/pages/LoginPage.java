@@ -3,9 +3,8 @@ package pages;
 import tools.PropertiesLoader;
 
 import static tools.CommonTools.getByObject;
-import static tools.CommonTools.sleep;
 
-public class SignInPage extends BasePage {
+public class LoginPage extends BasePage {
 
     private static final String SIGN_IN_BUTTON_ON_SIGN_IN_PAGE_LOCATOR = "xpath=//button/span[contains(text(), 'Sign in')]";
     private static final String EMAIL_INPUT_FIELD_LOCATOR = "id=email";
@@ -39,24 +38,20 @@ public class SignInPage extends BasePage {
     public void clickSignInButton() {
         wait.forElementToBeDisplayed(10, getByObject(getSignInButtonOnSignInPageLocator()), "Sign In button");
         driver.findElement(getByObject(getSignInButtonOnSignInPageLocator())).click();
-        sleep(3000);
     }
 
     public void enterEmailOnSignInPage(String email) {
         wait.forElementToBeDisplayed(10, getByObject(getEmailInputFieldLocator()), "Email input field");
         driver.findElement(getByObject(getEmailInputFieldLocator())).sendKeys(email);
-        sleep(3000);
     }
 
     public void enterPasswordOnSignInPage(String email) {
         wait.forElementToBeDisplayed(10, getByObject(getPasswordInputFieldLocator()), "Password input field");
         driver.findElement(getByObject(getPasswordInputFieldLocator())).sendKeys(email);
-        sleep(3000);
     }
 
     public void assertNoUserWarningMessage() {
         wait.forElementToBeDisplayed(10, getByObject(getWarningMessageLocator()), "Warning message");
         assert driver.findElement(getByObject(getWarningMessageLocator())).getText().contains("User not found.");
-        sleep(3000);
     }
 }
