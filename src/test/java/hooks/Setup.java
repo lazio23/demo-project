@@ -55,8 +55,7 @@ public class Setup {
     private void setupChrome() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--headless=new");
-        //options.addArguments("--auto-open-devtools-for-tabs");
+        options.addArguments("--headless=new");
         options.addArguments("--disable-gpu");
         options.addArguments("--no-sandbox");
         options.addArguments("--window-size=1920,1080");
