@@ -90,4 +90,12 @@ public class Wait {
         String timeoutMessage = webElementName + " wasn't displayed after " + timeout + " seconds.";
         waitUntilConditionAlert(condition, timeoutMessage, timeout);
     }
+    public void waitForOverlayToDisappear(By locator, int timeout) {
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(timeout))
+                    .until(ExpectedConditions.invisibilityOfElementLocated(locator));
+        } catch (Exception e) {
+            System.out.println("Overlay did not disappear in " + timeout + " seconds: " + locator);
+        }
+    }
 }
